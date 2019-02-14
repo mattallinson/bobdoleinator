@@ -6,9 +6,15 @@ def intersecting_words(intersections, number_of_letters, words):
         check_list.append([word, [word[i] for i in intersections]]) # so "spam" with intersections [1,3,4] would be >> ["spam", ["s","a","m"]]
     
     matches = []
+    checked = []
     for c in check_list: #["spam", ["s","a","m"]
         trial = [c[0]] #"spam"
         inters = c[1] #["s","a", "m"]
+        if inters in checked:
+        	continue
+        else:
+        	checked.append(inters)
+        
         for c in check_list: #["slam", ["s","a","m"]
             if c[1] == inters and c[0] not in trial: #True
                 trial.append(c[0]) #trial = ["spam", "slam"]
@@ -49,7 +55,7 @@ def main():
 	else:
 		words_to_test = right_length_words
 
-	filename = "output_" + str(number_of_letters) + '_' + "-".join([str(i+1) for i in intersections]) + ".tsv"
+	filename = "output_" + str(number_of_letters) + '_' + "-".join([str(i+1) for i in intersections]) +'_' + required_letters_input + ".tsv"
 	#the main event: get the matches list for the users inputs
 	iw = intersecting_words(intersections, number_of_letters, words_to_test) 
 	
