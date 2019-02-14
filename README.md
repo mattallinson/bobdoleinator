@@ -1,25 +1,17 @@
-<<<<<<< HEAD
-`bobdole.py` is a script that can go through a given text file of words and return sets of words that are the same length that have the same matching characters. For example a querey of _8 letter words that have the same 1st and 5th letter with the last letter being "m"_ would return  `["Escapism", "Europium"]`among many, many other combinations. 
-=======
 # Introduction
-`bobdole.py` is a script that can go through a given text file of words and return sets of words that are the same length that have the same matching characters. For example a querey of _8 letter words that have the same 1st, 5th, 8th letter_ would return  `["Escapism", "Europium"]`among many, many other combinations. 
->>>>>>> 7bb34df2434d6f2fb6f9d261a717df57866e9d8e
+`bobdole.py` is a script that can go through a given text file of words and return sets of words that are the same length that have the same matching characters. For example a querey of _8 letter words that have the same 1st and 5th letter with the last letter being "m"_ would return  `["Escapism", "Europium"]`among many, many other combinations. 
 
 ## Usage:
 
 1. Run `bobdole.exe` (windows) or open terminal window at folder and run `python bobdole.py` (mac/linux)
 2. Enter the number of letters you want when prompted (i.e. for the above example enter >8)
-<<<<<<< HEAD
+
 3. Fix any letters you want (i.e. for the above example enter >8:m)
 4. Enter the number of the letters you want to "intersect" separated by commas (i.e. for the above example entr >1,5)
 
 5. ????
 6. When it finishes, look back in the folder you just ran the program from, you should have a file called "output_8_1-5.tsv". Open this in excel or whatever editor you wish.
-=======
-3. Enter the number of the letters you want to "intersect" separated by commas (i.e. for the above example entr >1,5,8)
-4. ????
-5. When it finishes, look back in the folder you just ran the program from, you should have a file called "output_8_1-5-8.tsv". Open this in excel or whatever editor you wish.
->>>>>>> 7bb34df2434d6f2fb6f9d261a717df57866e9d8e
+
 
 #### Note
 There is no error handling built in to this, so if you ask for the 9th letter of 6 letter words, it will crash. If you separate your desired number of intersections with anything other than commas, it will crash. If you enter anything that isn't a numeric number, it will crash. It will probably also crash for many other mysterious reasons. Let me know them.
