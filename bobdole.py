@@ -35,12 +35,12 @@ def main():
 	number_of_letters = int(input('how many letters should the word be> ').rstrip())
 	
 	#get set letters from user
-	required_letters_input = input('which letters are fixed? Enter in the format "position:letter" and leave black if none> ').rstrip()
+	required_letters_input = input('which letters are fixed? Enter in the format "position=letter" and leave black if none> ').rstrip()
 	
 	if required_letters_input == '':
 		required_letters = None
 	else:
-		required_letters = {int(position)-1:letter for position, letter in [pair.split(':') for pair in required_letters_input.split(',')]}
+		required_letters = {int(position)-1:letter for position, letter in [pair.split('=') for pair in required_letters_input.split(',')]}
 
 	#request desired intersections from user
 	intersections = [int(i)-1 for i in input('which other letters should match? (please enter comma separated digits)> ').split(',')] 
