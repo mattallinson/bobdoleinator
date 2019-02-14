@@ -1,5 +1,9 @@
 import csv 
 
+def filename_maker(number_of_letters, intersections):
+	filename = "output" + str(number_of_letters) + "-".join(intersections) + ".tsv"
+	return filename
+
 def word_length_list_maker(number_of_letters, words):
 	right_length_words = []
 	for word in words:
@@ -29,9 +33,9 @@ def intersecting_words(intersections, number_of_letters, words):
     return matches
 
 def main():
-	with open('dictionary.txt', 'r') as f:
-	    words = [line.rstrip() for line in f]
-	    print(len(words), 'words in dictionary')
+	with open('dictionary.txt', 'r') as dictionary:
+	    words = [line.rstrip() for line in dictionary]
+	    print(len(words), 'words in dictionary.txt')
 
 	number_of_letters = int(input('how many letters should the word be>'))
 	intersections = [int(i)-1 for i in input(
@@ -39,14 +43,11 @@ def main():
 
 	iw = intersecting_words(intersections, number_of_letters, words)
 	
-	with open('output.tsv','w', newline='') as o:
+	filename = filename_maker(number_of_letters, intersections)
+	with open(filename,'w', newline='') as o:
 		csvwriter = csv.writer(o, delimiter='\t', lineterminator='\n')
 		for i in iw:
 			csvwriter.writerow(i)
 
 if __name__ == '__main__':
 	main()
-
-
-
-
